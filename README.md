@@ -40,7 +40,7 @@ The long-term goal is to extend this platform toward a closed-loop architecture 
 
 The EEG frontend board is designed specifically for this project.
 
-![EEG Frontend PCB](docs/images/eeg-frontend-pcb.png)
+![EEG Frontend PCB](docs/images/eeg-frontend-pcb-implemented.png)
 
 It is based on the **ADS1299**, an 8-channel, 24-bit analog front end for biopotential measurement.  
 The board integrates EEG input protection, analog acquisition, power regulation, and the digital interface required for connection to the Zynq platform.
@@ -50,10 +50,6 @@ The KiCad schematic and PCB design files are available in:
 ```text
 hardware/kicad/eeg-frontend/
 ```
-
-### Implemented
-
-![EEG Frontend 3D View](docs/images/eeg-frontend-pcb-implemented.png)
 
 ---
 
