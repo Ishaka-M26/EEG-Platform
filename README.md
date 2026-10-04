@@ -51,9 +51,9 @@ The KiCad schematic and PCB design files are available in:
 hardware/kicad/eeg-frontend/
 ```
 
-### 3D View
+### Implemented
 
-![EEG Frontend 3D View](docs/images/eeg-frontend-3d.png)
+![EEG Frontend 3D View](docs/images/eeg-frontend-pcb-implemented.png)
 
 ---
 
