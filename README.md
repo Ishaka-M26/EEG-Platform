@@ -1,5 +1,22 @@
 # EEG Platform
 
+A custom multichannel EEG acquisition platform for exploring real-time EEG processing and closed-loop neurotechnology.
+
+<p align="center">
+  <img src="docs/images/eeg_platform_setup.jpg" width="80%">
+</p>
+
+**Prototype setup: EEG electrodes, custom ADS1299 interface board, and Zybo Zynq-7000.**
+
+
+<p align="center">
+  <img src="docs/images/eeg_platform_setup_major_components.jpg" width="80%">
+</p>
+
+**Hardware connections and major components of the current prototype.**
+
+
+# Overview
 A custom EEG acquisition platform for real-time neural signal measurement and future closed-loop neurostimulation research.
 
 The system is built around a custom ADS1299-based EEG frontend and a Zynq-based processing platform.  
