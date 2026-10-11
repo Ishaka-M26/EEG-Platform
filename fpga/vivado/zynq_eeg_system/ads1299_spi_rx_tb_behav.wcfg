@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="ads1299_spi_rx_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="ads1299_spi_rx_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="216,695.322 ns"></ZoomStartTime>
+      <ZoomEndTime time="217,809.323 ns"></ZoomEndTime>
+      <Cursor1Time time="691.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="317"></NameColumnWidth>
+      <ValueColumnWidth column_width="157"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="22" />
+   <wvobject fp_name="/ads1299_spi_rx_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ads1299_spi_rx_tb/resetn" type="logic">
+      <obj_property name="ElementShortName">resetn</obj_property>
+      <obj_property name="ObjectShortName">resetn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ads1299_spi_rx_tb/ads_drdy" type="logic">
+      <obj_property name="ElementShortName">ads_drdy</obj_property>
+      <obj_property name="ObjectShortName">ads_drdy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ads1299_spi_rx_tb/ads_dout" type="logic">
+      <obj_property name="ElementShortName">ads_dout</obj_property>
+      <obj_property name="ObjectShortName">ads_dout</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ads1299_spi_rx_tb/ads_sclk" type="logic">
+      <obj_property name="ElementShortName">ads_sclk</obj_property>
+      <obj_property name="ObjectShortName">ads_sclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ads1299_spi_rx_tb/ads_cs" type="logic">
+      <obj_property name="ElementShortName">ads_cs</obj_property>
+      <obj_property name="ObjectShortName">ads_cs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ads1299_spi_rx_tb/dut/bit_count" type="array">
+      <obj_property name="ElementShortName">bit_count[8:0]</obj_property>
+      <obj_property name="ObjectShortName">bit_count[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ads1299_spi_rx_tb/ads_din" type="logic">
+      <obj_property name="ElementShortName">ads_din</obj_property>
+      <obj_property name="ObjectShortName">ads_din</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ads1299_spi_rx_tb/frame_data" type="array">
+      <obj_property name="ElementShortName">frame_data[215:0]</obj_property>
+      <obj_property name="ObjectShortName">frame_data[215:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ads1299_spi_rx_tb/frame_valid" type="logic">
+      <obj_property name="ElementShortName">frame_valid</obj_property>
+      <obj_property name="ObjectShortName">frame_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ads1299_spi_rx_tb/busy" type="logic">
+      <obj_property name="ElementShortName">busy</obj_property>
+      <obj_property name="ObjectShortName">busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ads1299_spi_rx_tb/status" type="array">
+      <obj_property name="ElementShortName">status[23:0]</obj_property>
+      <obj_property name="ObjectShortName">status[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ads1299_spi_rx_tb/ch1" type="array">
+      <obj_property name="ElementShortName">ch1[23:0]</obj_property>
+      <obj_property name="ObjectShortName">ch1[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ads1299_spi_rx_tb/ch2" type="array">
+      <obj_property name="ElementShortName">ch2[23:0]</obj_property>
+      <obj_property name="ObjectShortName">ch2[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ads1299_spi_rx_tb/ch3" type="array">
+      <obj_property name="ElementShortName">ch3[23:0]</obj_property>
+      <obj_property name="ObjectShortName">ch3[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ads1299_spi_rx_tb/ch4" type="array">
+      <obj_property name="ElementShortName">ch4[23:0]</obj_property>
+      <obj_property name="ObjectShortName">ch4[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ads1299_spi_rx_tb/ch5" type="array">
+      <obj_property name="ElementShortName">ch5[23:0]</obj_property>
+      <obj_property name="ObjectShortName">ch5[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ads1299_spi_rx_tb/ch6" type="array">
+      <obj_property name="ElementShortName">ch6[23:0]</obj_property>
+      <obj_property name="ObjectShortName">ch6[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ads1299_spi_rx_tb/ch7" type="array">
+      <obj_property name="ElementShortName">ch7[23:0]</obj_property>
+      <obj_property name="ObjectShortName">ch7[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ads1299_spi_rx_tb/ch8" type="array">
+      <obj_property name="ElementShortName">ch8[23:0]</obj_property>
+      <obj_property name="ObjectShortName">ch8[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ads1299_spi_rx_tb/tx_frame" type="array">
+      <obj_property name="ElementShortName">tx_frame[215:0]</obj_property>
+      <obj_property name="ObjectShortName">tx_frame[215:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/ads1299_spi_rx_tb/tx_bit_index" type="array">
+      <obj_property name="ElementShortName">tx_bit_index[31:0]</obj_property>
+      <obj_property name="ObjectShortName">tx_bit_index[31:0]</obj_property>
+   </wvobject>
+</wave_config>

@@ -1,0 +1,7 @@
+Running: xsim.dir/ads1299_spi_rx_tb_behav/xsimk.exe -simmode gui -wdb ads1299_spi_rx_tb_behav.wdb -simrunnum 0 -socket 57243
+Design successfully loaded
+Design Loading Memory Usage: 19648 KB (Peak: 19648 KB)
+Design Loading CPU Usage: 139 ms
+Simulation completed
+Simulation Memory Usage: 22260 KB (Peak: 22260 KB)
+Simulation CPU Usage: 483 ms

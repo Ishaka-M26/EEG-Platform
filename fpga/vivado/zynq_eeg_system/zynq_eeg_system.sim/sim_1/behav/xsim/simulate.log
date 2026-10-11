@@ -1,0 +1,27 @@
+Time resolution is 1 ps
+--------------------------------
+Status = c00000
+CH1    = 000001
+CH2    = 000002
+CH3    = 000003
+CH4    = 000004
+CH5    = 000005
+CH6    = 000006
+CH7    = 000007
+CH8    = 000008
+--------------------------------
+PASS
+$finish called at time : 220845 ns : File "C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.srcs/sim_1/new/ads1299_spi_rx_tb.v" Line 182
+--------------------------------
+Status = c00000
+CH1    = 000001
+CH2    = 000002
+CH3    = 000003
+CH4    = 000004
+CH5    = 000005
+CH6    = 000006
+CH7    = 000007
+CH8    = 000008
+--------------------------------
+PASS
+$finish called at time : 220845 ns : File "C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.srcs/sim_1/new/ads1299_spi_rx_tb.v" Line 182
