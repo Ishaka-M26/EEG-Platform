@@ -1,0 +1,9 @@
+# ninja log v5
+124	1788	0	CMakeFiles/print_build_info	4b5377e29d68485b
+124	1788	0	C:/Users/Takashi/dev/zynq_eeg_system/Vitis/axi_gpio_led_test/build/CMakeFiles/print_build_info	4b5377e29d68485b
+1796	3457	8134079087823235	CMakeFiles/axi_gpio_led_test.elf.dir/main.c.obj	5c7544f42ce6f9dd
+3467	5051	8134079099303155	axi_gpio_led_test.elf	577e48eb23d4f8fc
+54	2343	0	CMakeFiles/print_build_info	4b5377e29d68485b
+54	2343	0	C:/Users/Takashi/dev/zynq_eeg_system/Vitis/axi_gpio_led_test/build/CMakeFiles/print_build_info	4b5377e29d68485b
+2349	10879	8134254546426790	CMakeFiles/axi_gpio_led_test.elf.dir/main.c.obj	5c7544f42ce6f9dd
+10896	17651	8134254608745502	axi_gpio_led_test.elf	577e48eb23d4f8fc
