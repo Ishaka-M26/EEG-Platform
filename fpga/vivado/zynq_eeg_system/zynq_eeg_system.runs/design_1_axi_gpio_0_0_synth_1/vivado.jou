@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Mon Oct  5 03:51:58 2026
+# Process ID         : 5020
+# Current directory  : C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/design_1_axi_gpio_0_0_synth_1
+# Command line       : vivado.exe -log design_1_axi_gpio_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_axi_gpio_0_0.tcl
+# Log file           : C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/design_1_axi_gpio_0_0_synth_1/design_1_axi_gpio_0_0.vds
+# Journal file       : C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/design_1_axi_gpio_0_0_synth_1\vivado.jou
+# Running On         : DESKTOP-4O9V98J
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Apple silicon
+# CPU Frequency      : 2000 MHz
+# CPU Physical cores : 2
+# CPU Logical cores  : 2
+# Host memory        : 4289 MB
+# Swap memory        : 2891 MB
+# Total Virtual      : 7181 MB
+# Available Virtual  : 1425 MB
+#-----------------------------------------------------------
+source design_1_axi_gpio_0_0.tcl -notrace
