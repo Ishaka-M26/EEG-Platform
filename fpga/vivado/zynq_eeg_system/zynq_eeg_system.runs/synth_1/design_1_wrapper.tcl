@@ -56,10 +56,8 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param tcl.collectionResultDisplayLimit 0
 set_param general.usePosixSpawnForFork 1
-set_param bd.open.in_stealth_mode 1
-set_param xicom.use_bs_reader 1
+set_msg_config -id {HDL-1065} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z010clg400-1
 
@@ -74,6 +72,8 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part_repo_paths {C:/Users/Takashi/AppData/Roaming/Xilinx/Vivado/2025.2/xhub/board_store/xilinx_board_store} [current_project]
 set_property board_part digilentinc.com:zybo:part0:1.0 [current_project]
+set_property ip_repo_paths c:/Users/Takashi/dev/ip_repo/ads1299_frame_axi_1_0 [current_project]
+update_ip_catalog
 set_property ip_output_repo c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
@@ -117,6 +117,12 @@ set_property used_in_implementation false [get_files -all c:/Users/Takashi/dev/z
 set_property used_in_implementation false [get_files -all c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_36/bd_afc3_m01awn_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_37/bd_afc3_m01wn_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_38/bd_afc3_m01bn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_40/bd_afc3_m02s2a_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_41/bd_afc3_m02arn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_42/bd_afc3_m02rn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_43/bd_afc3_m02awn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_44/bd_afc3_m02wn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/ip/ip_45/bd_afc3_m02bn_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/smartconnect.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_0/design_1_rst_ps7_0_100M_0_board.xdc]

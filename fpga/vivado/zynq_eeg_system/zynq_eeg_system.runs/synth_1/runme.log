@@ -8,19 +8,19 @@
   **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
   **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
   **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-  **** Start of session at: Tue Oct 13 01:04:33 2026
+  **** Start of session at: Fri Oct 16 17:48:56 2026
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 
 Sourcing tcl script 'C:/Users/Takashi/AppData/Roaming/Xilinx/Vivado/Vivado_init.tcl'
 source design_1_wrapper.tcl -notrace
 WARNING: [Board 49-91] Board repository path 'C:/Users/Takashi/Downloads/vivado-boards-master/vivado-boards/new/board_files' does not exist, it will not be used to search board files.
-create_project: Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 624.004 ; gain = 217.328
+create_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:13 . Memory (MB): peak = 625.684 ; gain = 221.648
 WARNING: [Board 49-91] Board repository path 'C:/Users/Takashi/Downloads/vivado-boards-master/vivado-boards/new/board_files' does not exist, it will not be used to search board files.
 INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Takashi/dev/ip_repo/ads1299_frame_axi_1_0'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/AMDDesignTools/2025.2/Vivado/data/ip'.
-add_files: Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 696.359 ; gain = 72.355
+add_files: Time (s): cpu = 00:00:09 ; elapsed = 00:00:14 . Memory (MB): peak = 700.770 ; gain = 63.902
 Command: read_checkpoint -auto_incremental -incremental C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.srcs/utils_1/imports/synth_1/design_1_wrapper.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.srcs/utils_1/imports/synth_1/design_1_wrapper.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -33,74 +33,70 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 4084
+INFO: [Synth 8-7075] Helper process launched with PID 12268
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:21 ; elapsed = 00:00:45 . Memory (MB): peak = 1452.301 ; gain = 542.574
+Starting RTL Elaboration : Time (s): cpu = 00:00:15 ; elapsed = 00:00:27 . Memory (MB): peak = 1454.695 ; gain = 542.738
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_wrapper' [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:13]
 INFO: [Synth 8-6157] synthesizing module 'design_1' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:13]
-INFO: [Synth 8-6157] synthesizing module 'design_1_ads1299_spi_rx_0_0' [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-916-DESKTOP-4O9V98J/realtime/design_1_ads1299_spi_rx_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_ads1299_spi_rx_0_0' (0#1) [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-916-DESKTOP-4O9V98J/realtime/design_1_ads1299_spi_rx_0_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'frame_data' of module 'design_1_ads1299_spi_rx_0_0' is unconnected for instance 'ads1299_spi_rx_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:181]
-WARNING: [Synth 8-7071] port 'busy' of module 'design_1_ads1299_spi_rx_0_0' is unconnected for instance 'ads1299_spi_rx_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:181]
-WARNING: [Synth 8-7071] port 'ch2' of module 'design_1_ads1299_spi_rx_0_0' is unconnected for instance 'ads1299_spi_rx_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:181]
-WARNING: [Synth 8-7071] port 'ch3' of module 'design_1_ads1299_spi_rx_0_0' is unconnected for instance 'ads1299_spi_rx_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:181]
-WARNING: [Synth 8-7071] port 'ch4' of module 'design_1_ads1299_spi_rx_0_0' is unconnected for instance 'ads1299_spi_rx_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:181]
-WARNING: [Synth 8-7071] port 'ch5' of module 'design_1_ads1299_spi_rx_0_0' is unconnected for instance 'ads1299_spi_rx_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:181]
-WARNING: [Synth 8-7071] port 'ch6' of module 'design_1_ads1299_spi_rx_0_0' is unconnected for instance 'ads1299_spi_rx_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:181]
-WARNING: [Synth 8-7071] port 'ch7' of module 'design_1_ads1299_spi_rx_0_0' is unconnected for instance 'ads1299_spi_rx_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:181]
-WARNING: [Synth 8-7071] port 'ch8' of module 'design_1_ads1299_spi_rx_0_0' is unconnected for instance 'ads1299_spi_rx_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:181]
-WARNING: [Synth 8-7023] instance 'ads1299_spi_rx_0' of module 'design_1_ads1299_spi_rx_0_0' has 21 connections declared, but only 12 given [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:181]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_gpio_0_0' [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-916-DESKTOP-4O9V98J/realtime/design_1_axi_gpio_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_gpio_0_0' (0#1) [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-916-DESKTOP-4O9V98J/realtime/design_1_axi_gpio_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_gpio_1_0' [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-916-DESKTOP-4O9V98J/realtime/design_1_axi_gpio_1_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_gpio_1_0' (0#1) [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-916-DESKTOP-4O9V98J/realtime/design_1_axi_gpio_1_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_smc_0' [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-916-DESKTOP-4O9V98J/realtime/design_1_axi_smc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_smc_0' (0#1) [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-916-DESKTOP-4O9V98J/realtime/design_1_axi_smc_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'M00_AXI_awprot' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:236]
-WARNING: [Synth 8-7071] port 'M00_AXI_arprot' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:236]
-WARNING: [Synth 8-7071] port 'M01_AXI_awprot' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:236]
-WARNING: [Synth 8-7071] port 'M01_AXI_arprot' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:236]
-WARNING: [Synth 8-7023] instance 'axi_smc' of module 'design_1_axi_smc_0' has 78 connections declared, but only 74 given [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:236]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:311]
-INFO: [Synth 8-6157] synthesizing module 'design_1_ila_0_0' [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-916-DESKTOP-4O9V98J/realtime/design_1_ila_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_ila_0_0' (0#1) [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-916-DESKTOP-4O9V98J/realtime/design_1_ila_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_processing_system7_0_0' [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-916-DESKTOP-4O9V98J/realtime/design_1_processing_system7_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_processing_system7_0_0' (0#1) [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-916-DESKTOP-4O9V98J/realtime/design_1_processing_system7_0_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'ENET0_MDIO_MDC' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:322]
-WARNING: [Synth 8-7071] port 'ENET0_MDIO_O' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:322]
-WARNING: [Synth 8-7071] port 'ENET0_MDIO_T' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:322]
-WARNING: [Synth 8-7071] port 'TTC0_WAVE0_OUT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:322]
-WARNING: [Synth 8-7071] port 'TTC0_WAVE1_OUT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:322]
-WARNING: [Synth 8-7071] port 'TTC0_WAVE2_OUT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:322]
-WARNING: [Synth 8-7071] port 'USB0_PORT_INDCTL' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:322]
-WARNING: [Synth 8-7071] port 'USB0_VBUS_PWRSELECT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:322]
-WARNING: [Synth 8-7023] instance 'processing_system7_0' of module 'design_1_processing_system7_0_0' has 73 connections declared, but only 65 given [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:322]
-INFO: [Synth 8-6157] synthesizing module 'design_1_rst_ps7_0_100M_0' [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-916-DESKTOP-4O9V98J/realtime/design_1_rst_ps7_0_100M_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_rst_ps7_0_100M_0' (0#1) [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-916-DESKTOP-4O9V98J/realtime/design_1_rst_ps7_0_100M_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'mb_reset' of module 'design_1_rst_ps7_0_100M_0' is unconnected for instance 'rst_ps7_0_100M' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:388]
-WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'design_1_rst_ps7_0_100M_0' is unconnected for instance 'rst_ps7_0_100M' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:388]
-WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'design_1_rst_ps7_0_100M_0' is unconnected for instance 'rst_ps7_0_100M' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:388]
-WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'design_1_rst_ps7_0_100M_0' is unconnected for instance 'rst_ps7_0_100M' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:388]
-WARNING: [Synth 8-7023] instance 'rst_ps7_0_100M' of module 'design_1_rst_ps7_0_100M_0' has 10 connections declared, but only 6 given [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:388]
+INFO: [Synth 8-6157] synthesizing module 'design_1_ads1299_frame_axi_0_1' [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-9728-DESKTOP-4O9V98J/realtime/design_1_ads1299_frame_axi_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_ads1299_frame_axi_0_1' (0#1) [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-9728-DESKTOP-4O9V98J/realtime/design_1_ads1299_frame_axi_0_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_ads1299_spi_rx_0_0' [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-9728-DESKTOP-4O9V98J/realtime/design_1_ads1299_spi_rx_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_ads1299_spi_rx_0_0' (0#1) [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-9728-DESKTOP-4O9V98J/realtime/design_1_ads1299_spi_rx_0_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'frame_data' of module 'design_1_ads1299_spi_rx_0_0' is unconnected for instance 'ads1299_spi_rx_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:239]
+WARNING: [Synth 8-7071] port 'busy' of module 'design_1_ads1299_spi_rx_0_0' is unconnected for instance 'ads1299_spi_rx_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:239]
+WARNING: [Synth 8-7023] instance 'ads1299_spi_rx_0' of module 'design_1_ads1299_spi_rx_0_0' has 21 connections declared, but only 19 given [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:239]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_gpio_0_0' [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-9728-DESKTOP-4O9V98J/realtime/design_1_axi_gpio_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_gpio_0_0' (0#1) [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-9728-DESKTOP-4O9V98J/realtime/design_1_axi_gpio_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_gpio_1_0' [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-9728-DESKTOP-4O9V98J/realtime/design_1_axi_gpio_1_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_gpio_1_0' (0#1) [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-9728-DESKTOP-4O9V98J/realtime/design_1_axi_gpio_1_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_smc_0' [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-9728-DESKTOP-4O9V98J/realtime/design_1_axi_smc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_smc_0' (0#1) [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-9728-DESKTOP-4O9V98J/realtime/design_1_axi_smc_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'M00_AXI_awprot' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:301]
+WARNING: [Synth 8-7071] port 'M00_AXI_arprot' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:301]
+WARNING: [Synth 8-7071] port 'M01_AXI_awprot' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:301]
+WARNING: [Synth 8-7071] port 'M01_AXI_arprot' of module 'design_1_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:301]
+WARNING: [Synth 8-7023] instance 'axi_smc' of module 'design_1_axi_smc_0' has 97 connections declared, but only 93 given [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:301]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:395]
+INFO: [Synth 8-6157] synthesizing module 'design_1_ila_0_0' [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-9728-DESKTOP-4O9V98J/realtime/design_1_ila_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_ila_0_0' (0#1) [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-9728-DESKTOP-4O9V98J/realtime/design_1_ila_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_processing_system7_0_0' [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-9728-DESKTOP-4O9V98J/realtime/design_1_processing_system7_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_processing_system7_0_0' (0#1) [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-9728-DESKTOP-4O9V98J/realtime/design_1_processing_system7_0_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'ENET0_MDIO_MDC' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:406]
+WARNING: [Synth 8-7071] port 'ENET0_MDIO_O' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:406]
+WARNING: [Synth 8-7071] port 'ENET0_MDIO_T' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:406]
+WARNING: [Synth 8-7071] port 'TTC0_WAVE0_OUT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:406]
+WARNING: [Synth 8-7071] port 'TTC0_WAVE1_OUT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:406]
+WARNING: [Synth 8-7071] port 'TTC0_WAVE2_OUT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:406]
+WARNING: [Synth 8-7071] port 'USB0_PORT_INDCTL' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:406]
+WARNING: [Synth 8-7071] port 'USB0_VBUS_PWRSELECT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:406]
+WARNING: [Synth 8-7023] instance 'processing_system7_0' of module 'design_1_processing_system7_0_0' has 73 connections declared, but only 65 given [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:406]
+INFO: [Synth 8-6157] synthesizing module 'design_1_rst_ps7_0_100M_0' [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-9728-DESKTOP-4O9V98J/realtime/design_1_rst_ps7_0_100M_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_rst_ps7_0_100M_0' (0#1) [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/.Xil/Vivado-9728-DESKTOP-4O9V98J/realtime/design_1_rst_ps7_0_100M_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'mb_reset' of module 'design_1_rst_ps7_0_100M_0' is unconnected for instance 'rst_ps7_0_100M' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:472]
+WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'design_1_rst_ps7_0_100M_0' is unconnected for instance 'rst_ps7_0_100M' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:472]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'design_1_rst_ps7_0_100M_0' is unconnected for instance 'rst_ps7_0_100M' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:472]
+WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'design_1_rst_ps7_0_100M_0' is unconnected for instance 'rst_ps7_0_100M' [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:472]
+WARNING: [Synth 8-7023] instance 'rst_ps7_0_100M' of module 'design_1_rst_ps7_0_100M_0' has 10 connections declared, but only 6 given [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:472]
 INFO: [Synth 8-6155] done synthesizing module 'design_1' (0#1) [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:13]
 INFO: [Synth 8-6155] done synthesizing module 'design_1_wrapper' (0#1) [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:13]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'design_1_i'. This will prevent further optimization [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:100]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'ila_0'. This will prevent further optimization [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:311]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'ads1299_spi_rx_0'. This will prevent further optimization [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:181]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'ila_0'. This will prevent further optimization [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:395]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'ads1299_spi_rx_0'. This will prevent further optimization [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:239]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'ads1299_frame_axi_0'. This will prevent further optimization [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/synth/design_1.v:207]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:26 ; elapsed = 00:00:53 . Memory (MB): peak = 1578.551 ; gain = 668.824
+Finished RTL Elaboration : Time (s): cpu = 00:00:20 ; elapsed = 00:00:34 . Memory (MB): peak = 1582.426 ; gain = 670.469
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:53 . Memory (MB): peak = 1578.551 ; gain = 668.824
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:34 . Memory (MB): peak = 1582.426 ; gain = 670.469
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:26 ; elapsed = 00:00:53 . Memory (MB): peak = 1578.551 ; gain = 668.824
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:34 . Memory (MB): peak = 1582.426 ; gain = 670.469
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 1578.551 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1582.426 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -119,6 +115,8 @@ Parsing XDC File [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sourc
 Finished Parsing XDC File [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/ip/design_1_axi_gpio_1_0/design_1_axi_gpio_1_0/design_1_axi_gpio_1_0_in_context.xdc] for cell 'design_1_i/axi_gpio_1'
 Parsing XDC File [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/ip/design_1_ila_0_0/design_1_ila_0_0/design_1_ila_0_0_in_context.xdc] for cell 'design_1_i/ila_0'
 Finished Parsing XDC File [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/ip/design_1_ila_0_0/design_1_ila_0_0/design_1_ila_0_0_in_context.xdc] for cell 'design_1_i/ila_0'
+Parsing XDC File [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/ip/design_1_ads1299_frame_axi_0_1/design_1_ads1299_frame_axi_0_1/design_1_ads1299_frame_axi_0_1_in_context.xdc] for cell 'design_1_i/ads1299_frame_axi_0'
+Finished Parsing XDC File [c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/ip/design_1_ads1299_frame_axi_0_1/design_1_ads1299_frame_axi_0_1/design_1_ads1299_frame_axi_0_1_in_context.xdc] for cell 'design_1_i/ads1299_frame_axi_0'
 Parsing XDC File [C:/Users/Takashi/Downloads/zynq_eeg_system.srcs/constrs_1/new/zynq_eeg_system.xdc]
 Finished Parsing XDC File [C:/Users/Takashi/Downloads/zynq_eeg_system.srcs/constrs_1/new/zynq_eeg_system.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Takashi/Downloads/zynq_eeg_system.srcs/constrs_1/new/zynq_eeg_system.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/design_1_wrapper_propImpl.xdc].
@@ -127,31 +125,31 @@ Parsing XDC File [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synt
 Finished Parsing XDC File [C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1578.551 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1582.426 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.174 . Memory (MB): peak = 1578.551 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.091 . Memory (MB): peak = 1582.426 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:01:00 ; elapsed = 00:01:51 . Memory (MB): peak = 1578.551 ; gain = 668.824
+Finished Constraint Validation : Time (s): cpu = 00:00:42 ; elapsed = 00:01:04 . Memory (MB): peak = 1582.426 ; gain = 670.469
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:01:00 ; elapsed = 00:01:51 . Memory (MB): peak = 1578.551 ; gain = 668.824
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:42 ; elapsed = 00:01:04 . Memory (MB): peak = 1582.426 ; gain = 670.469
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:01 ; elapsed = 00:01:52 . Memory (MB): peak = 1578.551 ; gain = 668.824
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:42 ; elapsed = 00:01:05 . Memory (MB): peak = 1582.426 ; gain = 670.469
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:01 ; elapsed = 00:01:52 . Memory (MB): peak = 1578.551 ; gain = 668.824
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:43 ; elapsed = 00:01:05 . Memory (MB): peak = 1582.426 ; gain = 670.469
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -173,25 +171,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:06 ; elapsed = 00:02:00 . Memory (MB): peak = 1593.500 ; gain = 683.773
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:46 ; elapsed = 00:01:10 . Memory (MB): peak = 1589.859 ; gain = 677.902
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:26 ; elapsed = 00:02:28 . Memory (MB): peak = 1761.176 ; gain = 851.449
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:02 ; elapsed = 00:01:27 . Memory (MB): peak = 1762.215 ; gain = 850.258
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:26 ; elapsed = 00:02:28 . Memory (MB): peak = 1761.398 ; gain = 851.672
+Finished Timing Optimization : Time (s): cpu = 00:01:02 ; elapsed = 00:01:27 . Memory (MB): peak = 1762.922 ; gain = 850.965
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:27 ; elapsed = 00:02:29 . Memory (MB): peak = 1772.195 ; gain = 862.469
+Finished Technology Mapping : Time (s): cpu = 00:01:02 ; elapsed = 00:01:29 . Memory (MB): peak = 1773.309 ; gain = 861.352
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -209,37 +207,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:38 ; elapsed = 00:02:49 . Memory (MB): peak = 2020.566 ; gain = 1110.840
+Finished IO Insertion : Time (s): cpu = 00:01:11 ; elapsed = 00:01:39 . Memory (MB): peak = 2021.770 ; gain = 1109.812
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:38 ; elapsed = 00:02:49 . Memory (MB): peak = 2020.566 ; gain = 1110.840
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:11 ; elapsed = 00:01:39 . Memory (MB): peak = 2021.770 ; gain = 1109.812
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:38 ; elapsed = 00:02:49 . Memory (MB): peak = 2020.566 ; gain = 1110.840
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:11 ; elapsed = 00:01:39 . Memory (MB): peak = 2021.770 ; gain = 1109.812
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:38 ; elapsed = 00:02:49 . Memory (MB): peak = 2020.566 ; gain = 1110.840
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:11 ; elapsed = 00:01:39 . Memory (MB): peak = 2021.770 ; gain = 1109.812
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:38 ; elapsed = 00:02:49 . Memory (MB): peak = 2020.566 ; gain = 1110.840
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:11 ; elapsed = 00:01:39 . Memory (MB): peak = 2021.770 ; gain = 1109.812
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:38 ; elapsed = 00:02:49 . Memory (MB): peak = 2020.566 ; gain = 1110.840
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:11 ; elapsed = 00:01:39 . Memory (MB): peak = 2021.770 ; gain = 1109.812
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -249,49 +247,51 @@ Report BlackBoxes:
 +------+--------------------------------+----------+
 |      |BlackBox name                   |Instances |
 +------+--------------------------------+----------+
-|1     |design_1_ads1299_spi_rx_0_0     |         1|
-|2     |design_1_axi_gpio_0_0           |         1|
-|3     |design_1_axi_gpio_1_0           |         1|
-|4     |design_1_axi_smc_0              |         1|
-|5     |design_1_ila_0_0                |         1|
-|6     |design_1_processing_system7_0_0 |         1|
-|7     |design_1_rst_ps7_0_100M_0       |         1|
+|1     |design_1_ads1299_frame_axi_0_1  |         1|
+|2     |design_1_ads1299_spi_rx_0_0     |         1|
+|3     |design_1_axi_gpio_0_0           |         1|
+|4     |design_1_axi_gpio_1_0           |         1|
+|5     |design_1_axi_smc_0              |         1|
+|6     |design_1_ila_0_0                |         1|
+|7     |design_1_processing_system7_0_0 |         1|
+|8     |design_1_rst_ps7_0_100M_0       |         1|
 +------+--------------------------------+----------+
 
 Report Cell Usage: 
 +------+------------------------------+------+
 |      |Cell                          |Count |
 +------+------------------------------+------+
-|1     |design_1_ads1299_spi_rx_0     |     1|
-|2     |design_1_axi_gpio_0           |     1|
-|3     |design_1_axi_gpio_1           |     1|
-|4     |design_1_axi_smc              |     1|
-|5     |design_1_ila_0                |     1|
-|6     |design_1_processing_system7_0 |     1|
-|7     |design_1_rst_ps7_0_100M       |     1|
-|8     |IBUF                          |     2|
-|9     |OBUF                          |    10|
+|1     |design_1_ads1299_frame_axi_0  |     1|
+|2     |design_1_ads1299_spi_rx_0     |     1|
+|3     |design_1_axi_gpio_0           |     1|
+|4     |design_1_axi_gpio_1           |     1|
+|5     |design_1_axi_smc              |     1|
+|6     |design_1_ila_0                |     1|
+|7     |design_1_processing_system7_0 |     1|
+|8     |design_1_rst_ps7_0_100M       |     1|
+|9     |IBUF                          |     2|
+|10    |OBUF                          |    10|
 +------+------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:38 ; elapsed = 00:02:49 . Memory (MB): peak = 2020.566 ; gain = 1110.840
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:11 ; elapsed = 00:01:39 . Memory (MB): peak = 2021.770 ; gain = 1109.812
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:02 ; elapsed = 00:02:27 . Memory (MB): peak = 2020.566 ; gain = 1110.840
-Synthesis Optimization Complete : Time (s): cpu = 00:01:39 ; elapsed = 00:02:51 . Memory (MB): peak = 2020.566 ; gain = 1110.840
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:43 ; elapsed = 00:01:28 . Memory (MB): peak = 2021.770 ; gain = 1109.812
+Synthesis Optimization Complete : Time (s): cpu = 00:01:11 ; elapsed = 00:01:40 . Memory (MB): peak = 2021.770 ; gain = 1109.812
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.071 . Memory (MB): peak = 2029.699 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 2027.965 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2034.148 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2031.641 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: 5ec1f320
+Synth Design complete | Checksum: f605d468
 INFO: [Common 17-83] Releasing license: Synthesis
-43 Infos, 32 Warnings, 0 Critical Warnings and 0 Errors encountered.
+46 Infos, 25 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:07 ; elapsed = 00:03:56 . Memory (MB): peak = 2034.148 ; gain = 1329.520
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 2034.148 ; gain = 0.000
+synth_design: Time (s): cpu = 00:01:28 ; elapsed = 00:02:13 . Memory (MB): peak = 2031.641 ; gain = 1320.969
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 2031.641 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/synth_1/design_1_wrapper.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Oct 13 01:09:52 2026...
+INFO: [Common 17-206] Exiting Vivado at Fri Oct 16 17:52:03 2026...
