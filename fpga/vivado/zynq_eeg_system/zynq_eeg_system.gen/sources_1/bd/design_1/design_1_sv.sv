@@ -96,7 +96,19 @@ module design_1_sv (
   (* X_INTERFACE_IGNORE = "true" *)
   inout wire FIXED_IO_ps_porb,
   (* X_INTERFACE_IGNORE = "true" *)
-  output wire [3:0] LED
+  output wire [3:0] LED,
+  (* X_INTERFACE_IGNORE = "true" *)
+  input wire ADS1299_DRDY,
+  (* X_INTERFACE_IGNORE = "true" *)
+  input wire ADS1299_DOUT,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire ADS1299_SCLK,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire ADS1299_CS,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire ADS1299_DIN,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire [2:0] START_RESET_CS2
 );
 
   design_1 inst (
@@ -121,7 +133,13 @@ module design_1_sv (
     .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
     .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
     .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
-    .LED(LED)
+    .LED(LED),
+    .ADS1299_DRDY(ADS1299_DRDY),
+    .ADS1299_DOUT(ADS1299_DOUT),
+    .ADS1299_SCLK(ADS1299_SCLK),
+    .ADS1299_CS(ADS1299_CS),
+    .ADS1299_DIN(ADS1299_DIN),
+    .START_RESET_CS2(START_RESET_CS2)
   );
 
 endmodule

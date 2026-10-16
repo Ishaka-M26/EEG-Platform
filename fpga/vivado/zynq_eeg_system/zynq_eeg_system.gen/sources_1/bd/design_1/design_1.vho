@@ -74,7 +74,13 @@ COMPONENT design_1
     FIXED_IO_ps_srstb : INOUT STD_LOGIC;
     FIXED_IO_ps_clk : INOUT STD_LOGIC;
     FIXED_IO_ps_porb : INOUT STD_LOGIC;
-    LED : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+    LED : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+    ADS1299_DRDY : IN STD_LOGIC;
+    ADS1299_DOUT : IN STD_LOGIC;
+    ADS1299_SCLK : OUT STD_LOGIC;
+    ADS1299_CS : OUT STD_LOGIC;
+    ADS1299_DIN : OUT STD_LOGIC;
+    START_RESET_CS2 : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
   );
 END COMPONENT;
 -- COMP_TAG_END ------  End cut for COMPONENT Declaration  ------
@@ -106,7 +112,13 @@ your_instance_name : design_1
     FIXED_IO_ps_srstb => FIXED_IO_ps_srstb,
     FIXED_IO_ps_clk => FIXED_IO_ps_clk,
     FIXED_IO_ps_porb => FIXED_IO_ps_porb,
-    LED => LED
+    LED => LED,
+    ADS1299_DRDY => ADS1299_DRDY,
+    ADS1299_DOUT => ADS1299_DOUT,
+    ADS1299_SCLK => ADS1299_SCLK,
+    ADS1299_CS => ADS1299_CS,
+    ADS1299_DIN => ADS1299_DIN,
+    START_RESET_CS2 => START_RESET_CS2
   );
 -- INST_TAG_END ------  End cut for INSTANTIATION Template  ------
 

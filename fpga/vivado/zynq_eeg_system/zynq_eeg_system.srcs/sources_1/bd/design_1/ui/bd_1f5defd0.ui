@@ -1,30 +1,51 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.1674",
-   "Default View_TopLeft":"781,-27",
+   "Default View_TopLeft":"230,-167",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
-preplace port DDR -pg 1 -lvl 4 -x 1210 -y 80 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -lvl 4 -x 1210 -y 100 -defaultsOSRD
-preplace portBus LED -pg 1 -lvl 4 -x 1210 -y 60 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 1 -x 290 -y 270 -defaultsOSRD
-preplace inst axi_gpio_0 -pg 1 -lvl 1 -x 290 -y 50 -defaultsOSRD
-preplace inst axi_smc -pg 1 -lvl 3 -x 1040 -y 430 -defaultsOSRD
-preplace inst rst_ps7_0_100M -pg 1 -lvl 2 -x 700 -y 330 -defaultsOSRD
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 70 430 510 450 890J
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 1 1 530 310n
-preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 0 3 60 460 NJ 460 900
-preplace netloc axi_gpio_0_gpio_io_o 1 1 3 NJ 60 NJ 60 NJ
-preplace netloc processing_system7_0_DDR 1 1 3 NJ 190 N 190 1180
-preplace netloc processing_system7_0_FIXED_IO 1 1 3 NJ 210 N 210 1190
-preplace netloc processing_system7_0_M_AXI_GP0 1 1 2 520J 430 880J
-preplace netloc axi_smc_M00_AXI 1 0 4 50 440 NJ 440 870J 350 1180
-levelinfo -pg 1 0 290 700 1040 1210
-pagesize -pg 1 -db -bbox -sgen 0 -30 1370 510
+preplace port DDR -pg 1 -lvl 5 -x 1710 -y -10 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 5 -x 1710 -y -30 -defaultsOSRD
+preplace port port-id_ADS1299_DRDY -pg 1 -lvl 0 -x -40 -y -50 -defaultsOSRD
+preplace port port-id_ADS1299_DOUT -pg 1 -lvl 0 -x -40 -y 430 -defaultsOSRD
+preplace port port-id_ADS1299_SCLK -pg 1 -lvl 5 -x 1710 -y 70 -defaultsOSRD
+preplace port port-id_ADS1299_CS -pg 1 -lvl 5 -x 1710 -y 90 -defaultsOSRD
+preplace port port-id_ADS1299_DIN -pg 1 -lvl 5 -x 1710 -y 110 -defaultsOSRD
+preplace portBus LED -pg 1 -lvl 5 -x 1710 -y -50 -defaultsOSRD
+preplace portBus START_RESET_CS2 -pg 1 -lvl 5 -x 1710 -y 20 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 1 -x 320 -y 550 -defaultsOSRD
+preplace inst axi_gpio_0 -pg 1 -lvl 1 -x 320 -y 330 -defaultsOSRD
+preplace inst axi_smc -pg 1 -lvl 3 -x 1170 -y 430 -defaultsOSRD
+preplace inst rst_ps7_0_100M -pg 1 -lvl 2 -x 810 -y 330 -defaultsOSRD
+preplace inst ads1299_spi_rx_0 -pg 1 -lvl 4 -x 1500 -y 210 -defaultsOSRD
+preplace inst axi_gpio_1 -pg 1 -lvl 1 -x 320 -y 190 -defaultsOSRD
+preplace inst ila_0 -pg 1 -lvl 1 -x 320 -y -20 -defaultsOSRD
+preplace netloc ads1299_spi_rx_0_ads_cs 1 0 5 70 740 560 -60 N -60 N -60 1680
+preplace netloc ads1299_spi_rx_0_ads_din 1 4 1 1650 90n
+preplace netloc ads1299_spi_rx_0_ads_sclk 1 0 5 80 730 570 -40 N -40 N -40 1690
+preplace netloc ads1299_spi_rx_0_debug_bit_count 1 0 5 20 810 NJ 810 NJ 810 NJ 810 1680
+preplace netloc ads1299_spi_rx_0_debug_state 1 0 5 10 820 NJ 820 NJ 820 NJ 820 1670
+preplace netloc ads1299_spi_rx_0_frame_valid 1 0 5 0 830 NJ 830 NJ 830 NJ 830 1690
+preplace netloc ads_dout_0_1 1 0 4 -10J 770 630J 230 NJ 230 1320J
+preplace netloc ads_drdy_0_1 1 0 4 -20J 780 620J 220 NJ 220 NJ
+preplace netloc axi_gpio_0_gpio_io_o 1 1 4 540J -50 NJ -50 NJ -50 N
+preplace netloc axi_gpio_1_gpio_io_o 1 1 4 550J -30 NJ -30 NJ -30 1650J
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 4 60 750 600 210 1010J 180 N
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 1 1 610 310n
+preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 0 4 50 760 640J 700 1020 200 N
+preplace netloc ads1299_spi_rx_0_status 1 0 5 40 790 NJ 790 NJ 790 NJ 790 1660
+preplace netloc ads1299_spi_rx_0_ch1 1 0 5 30 800 NJ 800 NJ 800 NJ 800 1650
+preplace netloc axi_smc_M00_AXI 1 0 4 100 710 NJ 710 NJ 710 1320
+preplace netloc axi_smc_M01_AXI 1 0 4 90 720 NJ 720 NJ 720 1310
+preplace netloc processing_system7_0_DDR 1 1 4 590J 200 990 -10 N -10 N
+preplace netloc processing_system7_0_FIXED_IO 1 1 4 580J 190 980 -20 N -20 1660
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 2 NJ 550 1030J
+levelinfo -pg 1 -40 320 810 1170 1500 1710
+pagesize -pg 1 -db -bbox -sgen -200 -170 1930 840
 "
 }
 {
-   "da_axi4_cnt":"1",
+   "da_axi4_cnt":"2",
    "da_ps7_cnt":"1"
 }

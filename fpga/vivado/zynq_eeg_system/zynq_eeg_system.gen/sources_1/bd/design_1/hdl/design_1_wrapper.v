@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
-//Date        : Mon Oct  5 03:37:00 2026
+//Date        : Tue Oct 13 00:51:17 2026
 //Host        : DESKTOP-4O9V98J running 64-bit major release  (build 9200)
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -11,7 +11,12 @@
 `timescale 1 ps / 1 ps
 
 module design_1_wrapper
-   (DDR_addr,
+   (ADS1299_CS,
+    ADS1299_DIN,
+    ADS1299_DOUT,
+    ADS1299_DRDY,
+    ADS1299_SCLK,
+    DDR_addr,
     DDR_ba,
     DDR_cas_n,
     DDR_ck_n,
@@ -32,7 +37,13 @@ module design_1_wrapper
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
-    LED);
+    LED,
+    START_RESET_CS2);
+  output ADS1299_CS;
+  output ADS1299_DIN;
+  input ADS1299_DOUT;
+  input ADS1299_DRDY;
+  output ADS1299_SCLK;
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
   inout DDR_cas_n;
@@ -55,7 +66,13 @@ module design_1_wrapper
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
   output [3:0]LED;
+  output [2:0]START_RESET_CS2;
 
+  wire ADS1299_CS;
+  wire ADS1299_DIN;
+  wire ADS1299_DOUT;
+  wire ADS1299_DRDY;
+  wire ADS1299_SCLK;
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
   wire DDR_cas_n;
@@ -78,9 +95,15 @@ module design_1_wrapper
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
   wire [3:0]LED;
+  wire [2:0]START_RESET_CS2;
 
   design_1 design_1_i
-       (.DDR_addr(DDR_addr),
+       (.ADS1299_CS(ADS1299_CS),
+        .ADS1299_DIN(ADS1299_DIN),
+        .ADS1299_DOUT(ADS1299_DOUT),
+        .ADS1299_DRDY(ADS1299_DRDY),
+        .ADS1299_SCLK(ADS1299_SCLK),
+        .DDR_addr(DDR_addr),
         .DDR_ba(DDR_ba),
         .DDR_cas_n(DDR_cas_n),
         .DDR_ck_n(DDR_ck_n),
@@ -101,5 +124,6 @@ module design_1_wrapper
         .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
-        .LED(LED));
+        .LED(LED),
+        .START_RESET_CS2(START_RESET_CS2));
 endmodule

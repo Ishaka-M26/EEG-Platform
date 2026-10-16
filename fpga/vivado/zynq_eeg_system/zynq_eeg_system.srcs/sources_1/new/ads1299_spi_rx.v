@@ -41,6 +41,10 @@ module ads1299_spi_rx #(
     output reg          frame_valid,
     output reg          busy,
 
+    // debug
+    output wire [8:0] debug_bit_count,
+    output wire [2:0] debug_state,
+    
     // Parsed fields
     output wire [23:0] status,
 
@@ -54,7 +58,8 @@ module ads1299_spi_rx #(
     output wire signed [23:0] ch8
     );
     
-
+    assign debug_bit_count = bit_count;
+    assign debug_state     = state;
     // ------------------------------------------------------------
     // SPI clock divider
     //

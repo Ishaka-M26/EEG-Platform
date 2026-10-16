@@ -87,7 +87,13 @@ design_1_sv your_instance_name (
   .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb), // inout wire FIXED_IO_ps_srstb
   .FIXED_IO_ps_clk(FIXED_IO_ps_clk), // inout wire FIXED_IO_ps_clk
   .FIXED_IO_ps_porb(FIXED_IO_ps_porb), // inout wire FIXED_IO_ps_porb
-  .LED(LED) // output wire [3:0] LED
+  .LED(LED), // output wire [3:0] LED
+  .ADS1299_DRDY(ADS1299_DRDY), // input wire ADS1299_DRDY
+  .ADS1299_DOUT(ADS1299_DOUT), // input wire ADS1299_DOUT
+  .ADS1299_SCLK(ADS1299_SCLK), // output wire ADS1299_SCLK
+  .ADS1299_CS(ADS1299_CS), // output wire ADS1299_CS
+  .ADS1299_DIN(ADS1299_DIN), // output wire ADS1299_DIN
+  .START_RESET_CS2(START_RESET_CS2) // output wire [2:0] START_RESET_CS2
 );
 // INST_TAG_END ------  End cut for WRAPPER INSTANTIATION Template  ------
 
