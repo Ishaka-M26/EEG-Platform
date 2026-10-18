@@ -1,6 +1,41 @@
+
+
 # EEG Platform
 
 A custom multichannel EEG acquisition platform for exploring real-time EEG processing and closed-loop neurotechnology.
+
+## Demo: Real-Time Blink Detection
+
+The system acquires CH1 data from the ADS1299 at 250 SPS, calculates
+the peak-to-peak range over 100 ms windows, and turns on an LED when
+the range exceeds a threshold of 800 counts.
+
+In this test, a manually performed eye blink produced a transient
+increase in the measured range and triggered the LED in real time.
+
+<!-- video -->
+https://github.com/user-attachments/assets/f996c3a0-e510-41c0-a689-779db01b0a72
+
+
+### Example output
+
+```text
+CH1 min=-23961 max=-23366 range=595  LED=0
+CH1 min=-24158 max=-23965 range=193  LED=0
+CH1 min=-24212 max=-22453 range=1759 LED=1  <-- blink detected
+CH1 min=-24368 max=-24239 range=129  LED=1
+CH1 min=-24333 max=-24226 range=107  LED=1
+CH1 min=-24637 max=-24358 range=279  LED=1
+```
+
+The third window exceeded the detection threshold:
+1759 > 800
+
+and triggered the LED. The LED remains on for approximately 500 ms
+after detection, which is why LED=1 continues in the following
+windows even though their ranges fall below the threshold.
+
+## Setup
 
 <p align="center">
   <img src="docs/images/eeg_platform_setup.png" width="80%">
