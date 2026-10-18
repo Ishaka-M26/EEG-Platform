@@ -103,6 +103,25 @@ The KiCad schematic and PCB design files are available in:
 hardware/kicad/eeg-frontend/
 ```
 
+## ADS1299 Initialization
+
+The ADS1299 is configured directly from FPGA logic over SPI.
+The initialization sequence was verified on hardware using Vivado ILA.
+
+![ADS1299 SPI initialization](docs/images/ads1299_spi_init.png)
+
+Vivado ILA capture of the ADS1299 initialization sequence. SPI chip-select, clock, and DIN activity are monitored in the PL, and config_done is asserted after the initialization sequence completes.
+
+### Initialization sequence
+
+| Step | SPI command | Purpose |
+|---|---|---|
+| 1 | `SDATAC (0x11)` | Stop continuous data mode before register writes |
+| 2 | `WREG CONFIG3` | Enable internal reference |
+| 3 | `WREG CH1SET..CH8SET` | Configure channel gain and input mode |
+| 4 | `RDATAC (0x10)` | Resume continuous data output |
+
+
 ---
 
 ## Project Direction
