@@ -6,9 +6,8 @@ A custom multichannel EEG acquisition platform for exploring real-time EEG proce
 
 ## Demo: Real-Time Blink Detection
 
-The system acquires CH1 data from the ADS1299 at 250 SPS, calculates
-the peak-to-peak range over 100 ms windows, and turns on an LED when
-the range exceeds a threshold of 800 counts.
+The ADS1299 acquires data at 250 samples per second (SPS). The processor uses every 10th sample to calculate the peak-to-peak amplitude of Channel 1 over a 1-second window (25 samples).
+When the peak-to-peak amplitude exceeds a threshold of 800 ADC counts, an LED is activated and held on for approximately 5 seconds.
 
 In this test, a manually performed eye blink produced a transient
 increase in the measured range and triggered the LED in real time.
