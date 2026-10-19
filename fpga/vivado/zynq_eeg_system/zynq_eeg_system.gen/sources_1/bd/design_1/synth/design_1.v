@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
-//Date        : Fri Oct 16 17:38:42 2026
+//Date        : Sun Oct 18 06:58:12 2026
 //Host        : DESKTOP-4O9V98J running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -10,7 +10,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=8,numReposBlks=8,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=3,da_ps7_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=9,numReposBlks=9,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=3,da_ps7_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
    (ADS1299_CS,
     ADS1299_DIN,
@@ -105,8 +105,8 @@ module design_1
   wire [23:0]ads1299_spi_rx_0_ch6;
   wire [23:0]ads1299_spi_rx_0_ch7;
   wire [23:0]ads1299_spi_rx_0_ch8;
+  wire ads1299_spi_rx_0_config_done;
   wire [8:0]ads1299_spi_rx_0_debug_bit_count;
-  wire [2:0]ads1299_spi_rx_0_debug_state;
   wire ads1299_spi_rx_0_frame_valid;
   wire [23:0]ads1299_spi_rx_0_status;
   wire [8:0]axi_smc_M00_AXI_ARADDR;
@@ -203,6 +203,7 @@ module design_1
   wire [3:0]processing_system7_0_M_AXI_GP0_WSTRB;
   wire processing_system7_0_M_AXI_GP0_WVALID;
   wire [0:0]rst_ps7_0_100M_peripheral_aresetn;
+  wire [0:0]xlslice_0_Dout;
 
   design_1_ads1299_frame_axi_0_1 ads1299_frame_axi_0
        (.ch1(ads1299_spi_rx_0_ch1),
@@ -241,6 +242,7 @@ module design_1
         .ads_din(ADS1299_DIN),
         .ads_dout(ADS1299_DOUT),
         .ads_drdy(ADS1299_DRDY),
+        .ads_resetn(xlslice_0_Dout),
         .ads_sclk(ADS1299_SCLK),
         .ch1(ads1299_spi_rx_0_ch1),
         .ch2(ads1299_spi_rx_0_ch2),
@@ -251,8 +253,8 @@ module design_1
         .ch7(ads1299_spi_rx_0_ch7),
         .ch8(ads1299_spi_rx_0_ch8),
         .clk(processing_system7_0_FCLK_CLK0),
+        .config_done(ads1299_spi_rx_0_config_done),
         .debug_bit_count(ads1299_spi_rx_0_debug_bit_count),
-        .debug_state(ads1299_spi_rx_0_debug_state),
         .frame_valid(ads1299_spi_rx_0_frame_valid),
         .resetn(rst_ps7_0_100M_peripheral_aresetn),
         .status(ads1299_spi_rx_0_status));
@@ -400,9 +402,9 @@ module design_1
         .probe3(ADS1299_CS),
         .probe4(ads1299_spi_rx_0_frame_valid),
         .probe5(ads1299_spi_rx_0_debug_bit_count),
-        .probe6(ads1299_spi_rx_0_debug_state),
-        .probe7(ads1299_spi_rx_0_status),
-        .probe8(ads1299_spi_rx_0_ch1));
+        .probe6(xlslice_0_Dout),
+        .probe7(ADS1299_DIN),
+        .probe8(ads1299_spi_rx_0_config_done));
   design_1_processing_system7_0_0 processing_system7_0
        (.DDR_Addr(DDR_addr),
         .DDR_BankAddr(DDR_ba),
@@ -476,4 +478,7 @@ module design_1
         .mb_debug_sys_rst(1'b0),
         .peripheral_aresetn(rst_ps7_0_100M_peripheral_aresetn),
         .slowest_sync_clk(processing_system7_0_FCLK_CLK0));
+  design_1_xlslice_0_0 xlslice_0
+       (.Din(START_RESET_CS2),
+        .Dout(xlslice_0_Dout));
 endmodule

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Oct 16 17:39:20 2026" VIVADOVERSION="2025.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Oct 18 06:58:33 2026" VIVADOVERSION="2025.2">
 
   <SYSTEMINFO ARCH="zynq" BOARD="digilentinc.com:zybo:part0:1.0" DEVICE="7z010" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -443,6 +443,7 @@
         <PORT DIR="O" NAME="ads_din" SIGIS="undef" SIGNAME="ads1299_spi_rx_0_ads_din">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="ADS1299_DIN"/>
+            <CONNECTION INSTANCE="ila_0" PORT="probe7"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="ads_dout" SIGIS="undef" SIGNAME="External_Ports_ADS1299_DOUT">
@@ -455,6 +456,11 @@
             <CONNECTION INSTANCE="External_Ports" PORT="ADS1299_DRDY"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" NAME="ads_resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="xlslice_0_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlslice_0" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" NAME="ads_sclk" SIGIS="undef" SIGNAME="ads1299_spi_rx_0_ads_sclk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="ADS1299_SCLK"/>
@@ -464,7 +470,6 @@
         <PORT DIR="O" NAME="busy" SIGIS="undef"/>
         <PORT DIR="O" LEFT="23" NAME="ch1" RIGHT="0" SIGIS="undef" SIGNAME="ads1299_spi_rx_0_ch1">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ila_0" PORT="probe8"/>
             <CONNECTION INSTANCE="ads1299_frame_axi_0" PORT="ch1"/>
           </CONNECTIONS>
         </PORT>
@@ -508,16 +513,17 @@
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="O" NAME="config_done" SIGIS="undef" SIGNAME="ads1299_spi_rx_0_config_done">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ila_0" PORT="probe8"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" LEFT="8" NAME="debug_bit_count" RIGHT="0" SIGIS="undef" SIGNAME="ads1299_spi_rx_0_debug_bit_count">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ila_0" PORT="probe5"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="2" NAME="debug_state" RIGHT="0" SIGIS="undef" SIGNAME="ads1299_spi_rx_0_debug_state">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ila_0" PORT="probe6"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="debug_state" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" LEFT="215" NAME="frame_data" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" NAME="frame_valid" SIGIS="undef" SIGNAME="ads1299_spi_rx_0_frame_valid">
           <CONNECTIONS>
@@ -532,7 +538,6 @@
         </PORT>
         <PORT DIR="O" LEFT="23" NAME="status" RIGHT="0" SIGIS="undef" SIGNAME="ads1299_spi_rx_0_status">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ila_0" PORT="probe7"/>
             <CONNECTION INSTANCE="ads1299_frame_axi_0" PORT="status"/>
           </CONNECTIONS>
         </PORT>
@@ -1093,6 +1098,7 @@
         <PORT DIR="O" LEFT="2" NAME="gpio_io_o" RIGHT="0" SIGIS="undef" SIGNAME="axi_gpio_1_gpio_io_o">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="START_RESET_CS2"/>
+            <CONNECTION INSTANCE="xlslice_0" PORT="Din"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="s_axi_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
@@ -4074,7 +4080,7 @@
         <PARAMETER NAME="C_PROBE69_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE6_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE6_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_PROBE6_WIDTH" VALUE="3"/>
+        <PARAMETER NAME="C_PROBE6_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE700_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE700_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_PROBE700_WIDTH" VALUE="1"/>
@@ -4407,7 +4413,7 @@
         <PARAMETER NAME="C_PROBE79_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE7_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE7_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_PROBE7_WIDTH" VALUE="24"/>
+        <PARAMETER NAME="C_PROBE7_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE800_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE800_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_PROBE800_WIDTH" VALUE="1"/>
@@ -4740,7 +4746,7 @@
         <PARAMETER NAME="C_PROBE89_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE8_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE8_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_PROBE8_WIDTH" VALUE="24"/>
+        <PARAMETER NAME="C_PROBE8_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE900_MU_CNT" VALUE="1"/>
         <PARAMETER NAME="C_PROBE900_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_PROBE900_WIDTH" VALUE="1"/>
@@ -5075,8 +5081,8 @@
         <PARAMETER NAME="C_PROBE9_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_PROBE9_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_RAM_STYLE" VALUE="SUBCORE"/>
-        <PARAMETER NAME="C_SLOT_0_AXIS_TDEST_WIDTH" VALUE="24"/>
-        <PARAMETER NAME="C_SLOT_0_AXIS_TID_WIDTH" VALUE="24"/>
+        <PARAMETER NAME="C_SLOT_0_AXIS_TDEST_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_SLOT_0_AXIS_TID_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_SLOT_0_AXIS_TUSER_WIDTH" VALUE="9"/>
         <PARAMETER NAME="C_SLOT_0_AXI_ARUSER_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_SLOT_0_AXI_AWUSER_WIDTH" VALUE="1"/>
@@ -5143,19 +5149,19 @@
             <CONNECTION INSTANCE="ads1299_spi_rx_0" PORT="debug_bit_count"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="probe6" RIGHT="0" SIGIS="undef" SIGNAME="ads1299_spi_rx_0_debug_state">
+        <PORT DIR="I" LEFT="0" NAME="probe6" RIGHT="0" SIGIS="undef" SIGNAME="xlslice_0_Dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ads1299_spi_rx_0" PORT="debug_state"/>
+            <CONNECTION INSTANCE="xlslice_0" PORT="Dout"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="23" NAME="probe7" RIGHT="0" SIGIS="undef" SIGNAME="ads1299_spi_rx_0_status">
+        <PORT DIR="I" LEFT="0" NAME="probe7" RIGHT="0" SIGIS="undef" SIGNAME="ads1299_spi_rx_0_ads_din">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ads1299_spi_rx_0" PORT="status"/>
+            <CONNECTION INSTANCE="ads1299_spi_rx_0" PORT="ads_din"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="23" NAME="probe8" RIGHT="0" SIGIS="undef" SIGNAME="ads1299_spi_rx_0_ch1">
+        <PORT DIR="I" LEFT="0" NAME="probe8" RIGHT="0" SIGIS="undef" SIGNAME="ads1299_spi_rx_0_config_done">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ads1299_spi_rx_0" PORT="ch1"/>
+            <CONNECTION INSTANCE="ads1299_spi_rx_0" PORT="config_done"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -6200,8 +6206,8 @@
             <CONNECTION INSTANCE="rst_ps7_0_100M" PORT="slowest_sync_clk"/>
             <CONNECTION INSTANCE="axi_gpio_1" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="ila_0" PORT="clk"/>
-            <CONNECTION INSTANCE="ads1299_spi_rx_0" PORT="clk"/>
             <CONNECTION INSTANCE="ads1299_frame_axi_0" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="ads1299_spi_rx_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="FCLK_RESET0_N" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="processing_system7_0_FCLK_RESET0_N">
@@ -6619,14 +6625,39 @@
             <CONNECTION INSTANCE="axi_gpio_0" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="axi_smc" PORT="aresetn"/>
             <CONNECTION INSTANCE="axi_gpio_1" PORT="s_axi_aresetn"/>
-            <CONNECTION INSTANCE="ads1299_spi_rx_0" PORT="resetn"/>
             <CONNECTION INSTANCE="ads1299_frame_axi_0" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="ads1299_spi_rx_0" PORT="resetn"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="peripheral_reset" POLARITY="ACTIVE_HIGH" RIGHT="0" SIGIS="rst"/>
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="slowest_sync_clk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="5" FULLNAME="/xlslice_0" HWVERSION="1.0" INSTANCE="xlslice_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlslice" VLNV="xilinx.com:ip:xlslice:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DIN_FROM" VALUE="1"/>
+        <PARAMETER NAME="DIN_TO" VALUE="1"/>
+        <PARAMETER NAME="DIN_WIDTH" VALUE="3"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_xlslice_0_0"/>
+        <PARAMETER NAME="DOUT_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="2" NAME="Din" RIGHT="0" SIGIS="undef" SIGNAME="axi_gpio_1_gpio_io_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_gpio_1" PORT="gpio_io_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="xlslice_0_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ila_0" PORT="probe6"/>
+            <CONNECTION INSTANCE="ads1299_spi_rx_0" PORT="ads_resetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

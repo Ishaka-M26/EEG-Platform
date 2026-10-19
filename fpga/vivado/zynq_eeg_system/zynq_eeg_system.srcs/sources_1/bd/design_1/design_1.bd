@@ -18,7 +18,8 @@
       "ads1299_spi_rx_0": "",
       "axi_gpio_1": "",
       "ila_0": "",
-      "ads1299_frame_axi_0": ""
+      "ads1299_frame_axi_0": "",
+      "xlslice_0": ""
     },
     "interface_ports": {
       "DDR": {
@@ -1360,6 +1361,16 @@
           "ads_dout": {
             "direction": "I"
           },
+          "ads_resetn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
           "ads_sclk": {
             "direction": "O"
           },
@@ -1367,6 +1378,9 @@
             "direction": "O"
           },
           "ads_din": {
+            "direction": "O"
+          },
+          "config_done": {
             "direction": "O"
           },
           "frame_data": {
@@ -1474,13 +1488,13 @@
             "value": "9"
           },
           "C_PROBE6_WIDTH": {
-            "value": "3"
+            "value": "1"
           },
           "C_PROBE7_WIDTH": {
-            "value": "24"
+            "value": "1"
           },
           "C_PROBE8_WIDTH": {
-            "value": "24"
+            "value": "1"
           }
         }
       },
@@ -1491,6 +1505,25 @@
         "xci_path": "ip\\design_1_ads1299_frame_axi_0_1\\design_1_ads1299_frame_axi_0_1.xci",
         "inst_hier_path": "ads1299_frame_axi_0",
         "has_run_ip_tcl": "true"
+      },
+      "xlslice_0": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "ip_revision": "5",
+        "xci_name": "design_1_xlslice_0_0",
+        "xci_path": "ip\\design_1_xlslice_0_0\\design_1_xlslice_0_0.xci",
+        "inst_hier_path": "xlslice_0",
+        "has_run_ip_tcl": "true",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "1"
+          },
+          "DIN_TO": {
+            "value": "1"
+          },
+          "DIN_WIDTH": {
+            "value": "3"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -1542,7 +1575,8 @@
       "ads1299_spi_rx_0_ads_din": {
         "ports": [
           "ads1299_spi_rx_0/ads_din",
-          "ADS1299_DIN"
+          "ADS1299_DIN",
+          "ila_0/probe7"
         ]
       },
       "ads1299_spi_rx_0_ads_sclk": {
@@ -1555,7 +1589,6 @@
       "ads1299_spi_rx_0_ch1": {
         "ports": [
           "ads1299_spi_rx_0/ch1",
-          "ila_0/probe8",
           "ads1299_frame_axi_0/ch1"
         ]
       },
@@ -1601,16 +1634,16 @@
           "ads1299_frame_axi_0/ch8"
         ]
       },
+      "ads1299_spi_rx_0_config_done": {
+        "ports": [
+          "ads1299_spi_rx_0/config_done",
+          "ila_0/probe8"
+        ]
+      },
       "ads1299_spi_rx_0_debug_bit_count": {
         "ports": [
           "ads1299_spi_rx_0/debug_bit_count",
           "ila_0/probe5"
-        ]
-      },
-      "ads1299_spi_rx_0_debug_state": {
-        "ports": [
-          "ads1299_spi_rx_0/debug_state",
-          "ila_0/probe6"
         ]
       },
       "ads1299_spi_rx_0_frame_valid": {
@@ -1623,7 +1656,6 @@
       "ads1299_spi_rx_0_status": {
         "ports": [
           "ads1299_spi_rx_0/status",
-          "ila_0/probe7",
           "ads1299_frame_axi_0/status"
         ]
       },
@@ -1650,7 +1682,8 @@
       "axi_gpio_1_gpio_io_o": {
         "ports": [
           "axi_gpio_1/gpio_io_o",
-          "START_RESET_CS2"
+          "START_RESET_CS2",
+          "xlslice_0/Din"
         ]
       },
       "processing_system7_0_FCLK_CLK0": {
@@ -1662,8 +1695,8 @@
           "rst_ps7_0_100M/slowest_sync_clk",
           "axi_gpio_1/s_axi_aclk",
           "ila_0/clk",
-          "ads1299_spi_rx_0/clk",
-          "ads1299_frame_axi_0/s00_axi_aclk"
+          "ads1299_frame_axi_0/s00_axi_aclk",
+          "ads1299_spi_rx_0/clk"
         ]
       },
       "processing_system7_0_FCLK_RESET0_N": {
@@ -1678,8 +1711,15 @@
           "axi_gpio_0/s_axi_aresetn",
           "axi_smc/aresetn",
           "axi_gpio_1/s_axi_aresetn",
-          "ads1299_spi_rx_0/resetn",
-          "ads1299_frame_axi_0/s00_axi_aresetn"
+          "ads1299_frame_axi_0/s00_axi_aresetn",
+          "ads1299_spi_rx_0/resetn"
+        ]
+      },
+      "xlslice_0_Dout": {
+        "ports": [
+          "xlslice_0/Dout",
+          "ila_0/probe6",
+          "ads1299_spi_rx_0/ads_resetn"
         ]
       }
     },

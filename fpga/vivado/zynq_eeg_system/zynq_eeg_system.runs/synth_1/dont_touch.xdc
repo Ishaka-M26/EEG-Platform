@@ -30,4 +30,7 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_il
 # IP: bd/design_1/ip/design_1_ads1299_frame_axi_0_1/design_1_ads1299_frame_axi_0_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_ads1299_frame_axi_0_1 || ORIG_REF_NAME==design_1_ads1299_frame_axi_0_1} -quiet] -quiet
 
+# IP: bd/design_1/ip/design_1_xlslice_0_0/design_1_xlslice_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_xlslice_0_0 || ORIG_REF_NAME==design_1_xlslice_0_0} -quiet] -quiet
+
 # XDC: c:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.gen/sources_1/bd/design_1/design_1_ooc.xdc

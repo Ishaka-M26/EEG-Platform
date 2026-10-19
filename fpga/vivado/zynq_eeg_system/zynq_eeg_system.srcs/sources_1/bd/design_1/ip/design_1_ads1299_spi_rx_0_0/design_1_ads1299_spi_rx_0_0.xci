@@ -46,9 +46,11 @@
         "resetn": [ { "direction": "in" } ],
         "ads_drdy": [ { "direction": "in" } ],
         "ads_dout": [ { "direction": "in" } ],
+        "ads_resetn": [ { "direction": "in" } ],
         "ads_sclk": [ { "direction": "out" } ],
         "ads_cs": [ { "direction": "out" } ],
         "ads_din": [ { "direction": "out" } ],
+        "config_done": [ { "direction": "out" } ],
         "frame_data": [ { "direction": "out", "size_left": "215", "size_right": "0" } ],
         "frame_valid": [ { "direction": "out" } ],
         "busy": [ { "direction": "out" } ],
@@ -65,6 +67,18 @@
         "ch8": [ { "direction": "out", "size_left": "23", "size_right": "0" } ]
       },
       "interfaces": {
+        "ads_resetn": {
+          "vlnv": "xilinx.com:signal:reset:1.0",
+          "abstraction_type": "xilinx.com:signal:reset_rtl:1.0",
+          "mode": "slave",
+          "parameters": {
+            "POLARITY": [ { "value": "ACTIVE_LOW", "value_src": "constant", "value_permission": "bd_and_user", "usage": "all" } ],
+            "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
+          },
+          "port_maps": {
+            "RST": [ { "physical_name": "ads_resetn" } ]
+          }
+        },
         "resetn": {
           "vlnv": "xilinx.com:signal:reset:1.0",
           "abstraction_type": "xilinx.com:signal:reset_rtl:1.0",
@@ -98,5 +112,5 @@
       }
     }
   },
-  "checksum": "914c5ce7"
+  "checksum": "a717304a"
 }

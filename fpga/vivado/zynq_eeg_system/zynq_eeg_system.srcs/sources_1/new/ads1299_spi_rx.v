@@ -32,10 +32,17 @@ module ads1299_spi_rx #(
     input  wire ads_drdy,
     input  wire ads_dout,
 
+    // Physical ADS1299 RESET signal.
+    // Connect this to the same RESET signal driven by AXI GPIO.
+    input  wire ads_resetn,
+
     output reg  ads_sclk,
     output reg  ads_cs,
-    output wire ads_din,
+    output reg ads_din,
 
+    // Goes high after ADS1299 register initialization
+    output reg  config_done,
+    
     // Complete ADS1299 frame
     output reg  [215:0] frame_data,
     output reg          frame_valid,
@@ -129,14 +136,131 @@ module ads1299_spi_rx #(
     reg [2:0] state;
 
     // ------------------------------------------------------------
-    // ADS1299 DIN
+    // ADS1299 configuration state machine
     //
-    // No command during data read.
-    // 0x00 = NOP.
+    // After ADS RESET is released:
+    //
+    //   SDATAC
+    //   WREG CONFIG3 = 0xE0
+    //   WREG CH1SET..CH8SET
+    //   RDATAC
+    //
     // ------------------------------------------------------------
 
-    assign ads_din = 1'b0;
+    localparam integer RESET_WAIT_CYCLES =
+        (CLK_FREQ_HZ / 1_000_000) * 20;   // 20 us
 
+    localparam integer CMD_GAP_CYCLES =
+        (CLK_FREQ_HZ / 1_000_000) * 5;    // 5 us
+
+    localparam [2:0]
+        CFG_WAIT_RESET = 3'd0,
+        CFG_WAIT       = 3'd1,
+        CFG_CS_SETUP   = 3'd2,
+        CFG_SHIFT      = 3'd3,
+        CFG_CS_HOLD    = 3'd4,
+        CFG_GAP        = 3'd5;
+
+    reg [2:0] cfg_state;
+
+    // 0 = SDATAC
+    // 1 = WREG CONFIG3 = 0xEC
+    // 2 = WREG BIAS_SENSP / BIAS_SENSN
+    // 3 = WREG CH1SET..CH8SET
+    // 4 = RDATAC
+    reg [2:0] cfg_stage;
+
+    reg [3:0] cfg_byte_index;
+    reg [2:0] cfg_bit_count;
+
+    reg [31:0] cfg_wait_count;
+    reg [31:0] cfg_gap_count;
+
+    // Current byte to transmit
+    reg [7:0] cfg_tx_byte;
+
+    always @(*) begin
+        case (cfg_stage)
+    
+            // --------------------------------------------
+            // Stage 0: SDATAC
+            // --------------------------------------------
+            3'd0: begin
+                cfg_tx_byte = 8'h11;
+            end
+    
+            // --------------------------------------------
+            // Stage 1: CONFIG3 = 0xEC
+            //
+            // 0x43 = WREG CONFIG3 (address 0x03)
+            // 0x00 = write 1 register
+            // 0xEC = reference ON
+            //        internal BIAS reference
+            //        BIAS amplifier ON
+            // --------------------------------------------
+            3'd1: begin
+                case (cfg_byte_index)
+                    4'd0: cfg_tx_byte = 8'h43;
+                    4'd1: cfg_tx_byte = 8'h00;
+                    default:
+                        cfg_tx_byte = 8'hEC;
+                endcase
+            end
+    
+            // --------------------------------------------
+            // Stage 2: BIAS_SENSP / BIAS_SENSN
+            //
+            // BIAS_SENSP address = 0x0D
+            // BIAS_SENSN address = 0x0E
+            //
+            // 0x4D = WREG starting at 0x0D
+            // 0x01 = write 2 registers
+            // 0x01 = use CH1P for BIAS derivation
+            // 0x01 = use CH1N for BIAS derivation
+            // --------------------------------------------
+            3'd2: begin
+                case (cfg_byte_index)
+                    4'd0: cfg_tx_byte = 8'h4D;
+                    4'd1: cfg_tx_byte = 8'h01;
+                    4'd2: cfg_tx_byte = 8'h01;
+                    default:
+                        cfg_tx_byte = 8'h01;
+                endcase
+            end
+    
+            // --------------------------------------------
+            // Stage 3: CH1SET..CH8SET
+            //
+            // CH1: gain 1, normal input
+            // CH2-8: gain 24, normal input
+            // --------------------------------------------
+            3'd3: begin
+                case (cfg_byte_index)
+    
+                    4'd0: cfg_tx_byte = 8'h45;
+                    4'd1: cfg_tx_byte = 8'h07;
+    
+                    4'd2: cfg_tx_byte = 8'h00; // CH1 gain=1, normal
+    
+                    default:
+                        cfg_tx_byte = 8'h60;   // CH2-8 gain=24, normal
+                endcase
+            end
+    
+            // --------------------------------------------
+            // Stage 4: RDATAC
+            // --------------------------------------------
+            3'd4: begin
+                cfg_tx_byte = 8'h10;
+            end
+    
+            default: begin
+                cfg_tx_byte = 8'h00;
+            end
+    
+        endcase
+    end
+    
     // ------------------------------------------------------------
     // Main SPI receiver
     // ------------------------------------------------------------
@@ -144,11 +268,11 @@ module ads1299_spi_rx #(
     always @(posedge clk) begin
 
         if (!resetn) begin
-
             state         <= ST_IDLE;
 
             ads_sclk      <= 1'b0;
             ads_cs        <= 1'b1;
+            ads_din       <= 1'b0;
 
             clk_div_count <= 32'd0;
             cs_hold_count <= 32'd0;
@@ -160,12 +284,336 @@ module ads1299_spi_rx #(
             frame_valid   <= 1'b0;
 
             busy          <= 1'b0;
+
+            // ADS1299 configuration
+            config_done   <= 1'b0;
+
+            cfg_state      <= CFG_WAIT_RESET;
+            cfg_stage      <= 3'd0;
+            cfg_byte_index <= 4'd0;
+            cfg_bit_count  <= 3'd0;
+
+            cfg_wait_count <= 32'd0;
+            cfg_gap_count  <= 32'd0;
         end
 
         else begin
-
-            // frame_valid is a one-clock pulse
             frame_valid <= 1'b0;
+
+            // ====================================================
+            // ADS1299 is being held in RESET
+            // ====================================================
+
+            if (!ads_resetn) begin
+
+                config_done <= 1'b0;
+
+                cfg_state      <= CFG_WAIT_RESET;
+                cfg_stage      <= 3'd0;
+                cfg_byte_index <= 4'd0;
+                cfg_bit_count  <= 3'd0;
+
+                cfg_wait_count <= 32'd0;
+                cfg_gap_count  <= 32'd0;
+
+                ads_sclk <= 1'b0;
+                ads_cs   <= 1'b1;
+                ads_din  <= 1'b0;
+
+                clk_div_count <= 32'd0;
+                cs_hold_count <= 32'd0;
+
+                state     <= ST_IDLE;
+                bit_count <= 9'd0;
+                busy      <= 1'b1;
+            end
+
+            // ====================================================
+            // ADS1299 configuration
+            // ====================================================
+
+            else if (!config_done) begin
+
+                busy <= 1'b1;
+
+                case (cfg_state)
+
+                    // --------------------------------------------
+                    // RESET was released.
+                    // Start post-reset waiting period.
+                    // --------------------------------------------
+
+                    CFG_WAIT_RESET: begin
+
+                        ads_sclk <= 1'b0;
+                        ads_cs   <= 1'b1;
+                        ads_din  <= 1'b0;
+
+                        cfg_wait_count <= 32'd0;
+
+                        cfg_state <= CFG_WAIT;
+                    end
+
+
+                    // --------------------------------------------
+                    // Wait after RESET release
+                    // --------------------------------------------
+
+                    CFG_WAIT: begin
+
+                        ads_sclk <= 1'b0;
+                        ads_cs   <= 1'b1;
+                        ads_din  <= 1'b0;
+
+                        if (cfg_wait_count >= RESET_WAIT_CYCLES - 1) begin
+
+                            cfg_wait_count <= 32'd0;
+
+                            cfg_stage      <= 3'd0;
+                            cfg_byte_index <= 4'd0;
+                            cfg_bit_count  <= 3'd0;
+
+                            clk_div_count <= 32'd0;
+
+                            ads_cs <= 1'b0;
+
+                            cfg_state <= CFG_CS_SETUP;
+                        end
+
+                        else begin
+                            cfg_wait_count <= cfg_wait_count + 1'b1;
+                        end
+                    end
+
+
+                    // --------------------------------------------
+                    // CS setup time
+                    // --------------------------------------------
+
+                    CFG_CS_SETUP: begin
+
+                        ads_sclk <= 1'b0;
+                        ads_cs   <= 1'b0;
+                        ads_din  <= 1'b0;
+
+                        if (clk_div_count == HALF_DIV - 1) begin
+
+                            clk_div_count <= 32'd0;
+
+                            cfg_state <= CFG_SHIFT;
+                        end
+
+                        else begin
+                            clk_div_count <= clk_div_count + 1'b1;
+                        end
+                    end
+
+
+                    // --------------------------------------------
+                    // Transmit configuration data
+                    //
+                    // CPOL = 0, CPHA = 1
+                    //
+                    // rising edge:
+                    //   FPGA changes DIN
+                    //
+                    // falling edge:
+                    //   ADS1299 samples DIN
+                    // --------------------------------------------
+
+                    CFG_SHIFT: begin
+
+                        if (clk_div_count == HALF_DIV - 1) begin
+
+                            clk_div_count <= 32'd0;
+
+                            // LOW -> HIGH
+                            if (ads_sclk == 1'b0) begin
+
+                                ads_sclk <= 1'b1;
+
+                                ads_din <=
+                                    cfg_tx_byte[7 - cfg_bit_count];
+                            end
+
+                            // HIGH -> LOW
+                            else begin
+
+                                ads_sclk <= 1'b0;
+
+                                if (cfg_bit_count == 3'd7) begin
+    
+                                    cfg_bit_count <= 3'd0;
+                                
+                                    // --------------------------------------------
+                                    // Stage 0: SDATAC = 1 byte
+                                    // --------------------------------------------
+                                    if (cfg_stage == 3'd0) begin
+                                
+                                        cs_hold_count <= 32'd0;
+                                        cfg_state <= CFG_CS_HOLD;
+                                    end
+                                
+                                    // --------------------------------------------
+                                    // Stage 1: CONFIG3 WREG = 3 bytes
+                                    //
+                                    // 43 00 EC
+                                    // --------------------------------------------
+                                    else if (cfg_stage == 3'd1) begin
+                                
+                                        if (cfg_byte_index == 4'd2) begin
+                                
+                                            cs_hold_count <= 32'd0;
+                                            cfg_state <= CFG_CS_HOLD;
+                                        end
+                                
+                                        else begin
+                                            cfg_byte_index <= cfg_byte_index + 1'b1;
+                                        end
+                                    end
+                                
+                                    // --------------------------------------------
+                                    // Stage 2: BIAS_SENSP/N WREG = 4 bytes
+                                    //
+                                    // 4D 01 01 01
+                                    // --------------------------------------------
+                                    else if (cfg_stage == 3'd2) begin
+                                
+                                        if (cfg_byte_index == 4'd3) begin
+                                
+                                            cs_hold_count <= 32'd0;
+                                            cfg_state <= CFG_CS_HOLD;
+                                        end
+                                
+                                        else begin
+                                            cfg_byte_index <= cfg_byte_index + 1'b1;
+                                        end
+                                    end
+                                
+                                    // --------------------------------------------
+                                    // Stage 3: CH1SET..CH8SET WREG = 10 bytes
+                                    //
+                                    // 45 07 + 8 register values
+                                    // --------------------------------------------
+                                    else if (cfg_stage == 3'd3) begin
+                                
+                                        if (cfg_byte_index == 4'd9) begin
+                                
+                                            cs_hold_count <= 32'd0;
+                                            cfg_state <= CFG_CS_HOLD;
+                                        end
+                                
+                                        else begin
+                                            cfg_byte_index <= cfg_byte_index + 1'b1;
+                                        end
+                                    end
+                                
+                                    // --------------------------------------------
+                                    // Stage 4: RDATAC = 1 byte
+                                    // --------------------------------------------
+                                    else begin
+                                
+                                        cs_hold_count <= 32'd0;
+                                        cfg_state <= CFG_CS_HOLD;
+                                    end
+                                end
+
+                                else begin
+
+                                    cfg_bit_count <=
+                                        cfg_bit_count + 1'b1;
+                                end
+                            end
+                        end
+
+                        else begin
+                            clk_div_count <= clk_div_count + 1'b1;
+                        end
+                    end
+
+
+                    // --------------------------------------------
+                    // Hold CS low after command
+                    // --------------------------------------------
+
+                    CFG_CS_HOLD: begin
+
+                        ads_sclk <= 1'b0;
+
+                        if (cs_hold_count >= CS_HOLD_CYCLES - 1) begin
+
+                            ads_cs  <= 1'b1;
+                            ads_din <= 1'b0;
+
+                            cs_hold_count <= 32'd0;
+
+                            // RDATAC finished
+                            if (cfg_stage == 3'd4) begin
+                            
+                                config_done <= 1'b1;
+                                busy <= 1'b0;
+                            end
+
+                            else begin
+
+                                cfg_gap_count <= 32'd0;
+
+                                cfg_state <= CFG_GAP;
+                            end
+                        end
+
+                        else begin
+
+                            cs_hold_count <= cs_hold_count + 1'b1;
+                        end
+                    end
+
+
+                    // --------------------------------------------
+                    // Gap between separate commands
+                    // --------------------------------------------
+
+                    CFG_GAP: begin
+
+                        ads_sclk <= 1'b0;
+                        ads_cs   <= 1'b1;
+                        ads_din  <= 1'b0;
+
+                        if (cfg_gap_count >= CMD_GAP_CYCLES - 1) begin
+
+                            cfg_gap_count <= 32'd0;
+
+                            cfg_stage <= cfg_stage + 1'b1;
+
+                            cfg_byte_index <= 4'd0;
+                            cfg_bit_count  <= 3'd0;
+
+                            clk_div_count <= 32'd0;
+
+                            ads_cs <= 1'b0;
+
+                            cfg_state <= CFG_CS_SETUP;
+                        end
+
+                        else begin
+
+                            cfg_gap_count <= cfg_gap_count + 1'b1;
+                        end
+                    end
+
+
+                    default: begin
+
+                        cfg_state <= CFG_WAIT_RESET;
+                    end
+
+                endcase
+            end 
+            else begin
+            // Normal receive mode:
+            // No command is sent to ADS1299.
+            ads_din <= 1'b0;
+
 
             case (state)
 
@@ -335,7 +783,7 @@ module ads1299_spi_rx #(
             endcase
         end
     end
-
+end
 
     // ------------------------------------------------------------
     // Frame parser

@@ -3,8 +3,8 @@
 # SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
 # IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
 # SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-# Start of session at: Mon Oct 12 01:51:55 2026
-# Process ID         : 7540
+# Start of session at: Sun Oct 18 07:01:04 2026
+# Process ID         : 6104
 # Current directory  : C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/design_1_ads1299_spi_rx_0_0_synth_1
 # Command line       : vivado.exe -log design_1_ads1299_spi_rx_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_ads1299_spi_rx_0_0.tcl
 # Log file           : C:/Users/Takashi/dev/zynq_eeg_system/zynq_eeg_system.runs/design_1_ads1299_spi_rx_0_0_synth_1/design_1_ads1299_spi_rx_0_0.vds
@@ -17,8 +17,8 @@
 # CPU Physical cores : 2
 # CPU Logical cores  : 2
 # Host memory        : 4289 MB
-# Swap memory        : 3221 MB
-# Total Virtual      : 7510 MB
-# Available Virtual  : 1729 MB
+# Swap memory        : 9126 MB
+# Total Virtual      : 13416 MB
+# Available Virtual  : 7603 MB
 #-----------------------------------------------------------
 source design_1_ads1299_spi_rx_0_0.tcl -notrace

@@ -59,9 +59,11 @@ module design_1_ads1299_spi_rx_0_0 (
   resetn,
   ads_drdy,
   ads_dout,
+  ads_resetn,
   ads_sclk,
   ads_cs,
   ads_din,
+  config_done,
   frame_data,
   frame_valid,
   busy,
@@ -88,9 +90,14 @@ input wire clk;
 input wire resetn;
 input wire ads_drdy;
 input wire ads_dout;
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 ads_resetn RST" *)
+(* X_INTERFACE_MODE = "slave" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ads_resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+input wire ads_resetn;
 output wire ads_sclk;
 output wire ads_cs;
 output wire ads_din;
+output wire config_done;
 output wire [215 : 0] frame_data;
 output wire frame_valid;
 output wire busy;
@@ -114,9 +121,11 @@ output wire [23 : 0] ch8;
     .resetn(resetn),
     .ads_drdy(ads_drdy),
     .ads_dout(ads_dout),
+    .ads_resetn(ads_resetn),
     .ads_sclk(ads_sclk),
     .ads_cs(ads_cs),
     .ads_din(ads_din),
+    .config_done(config_done),
     .frame_data(frame_data),
     .frame_valid(frame_valid),
     .busy(busy),
