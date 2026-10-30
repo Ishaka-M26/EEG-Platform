@@ -18,8 +18,8 @@ https://github.com/user-attachments/assets/f996c3a0-e510-41c0-a689-779db01b0a72
 
 ### Electrode Placement
 For the blink detection experiment, Channel 1 was configured to measure the differential voltage between Fp1 and A1, following the International 10–20 electrode placement system.
-CH1P (1P): Fp1, left frontopolar region
-CH1N (1N): A1, left earlobe (reference electrode)
+- CH1P (1P): Fp1, left frontopolar region
+- CH1N (1N): A1, left earlobe (reference electrode)
 
 The frontal electrode placement allows the system to capture voltage transients associated with eye blinks. These transients are primarily related to ocular activity (EOG artifacts) rather than cortical EEG activity.
 <p align="center">
@@ -67,6 +67,24 @@ EEG signals were recorded from an occipital channel under eyes-open (EO) and eye
 The preliminary results show differences in spectral power between the two conditions. However, a clear eyes-closed increase within the alpha band was not observed. Larger differences appeared at frequencies above 13 Hz.
 
 Further validation of electrode contact, signal quality, and spectral characteristics is needed before attributing these differences to cortical alpha activity.
+
+
+### Electrode Placement
+
+For the alpha-band experiment, Channel 1 was configured to measure the differential voltage between the left occipital region and the left ear, based on the International 10–20 electrode placement system.
+- CH1P (1P): Near O1, left occipital region
+- CH1N (1N): A1, left ear (reference electrode)
+
+Ten20 conductive paste was applied to improve electrode contact with the scalp.
+<p align="center">
+  <img src="docs/images/ten20.jpg" width="180" alt="Ten20 conductive paste">
+</p>
+<p align="center">
+  <sub>Ten20 conductive paste used for electrode contact.</sub>
+</p>
+
+The occipital electrode placement was selected to investigate alpha-band activity (8–13 Hz), which is commonly more prominent over posterior brain regions during eyes-closed conditions.
+
 
 
 
