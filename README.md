@@ -48,6 +48,28 @@ and triggered the LED. The LED remains on for approximately 500 ms
 after detection, which is why LED=1 continues in the following
 windows even though their ranges fall below the threshold.
 
+
+
+## Experiment: Alpha-Band Spectral Analysis
+
+As a next step toward real-time EEG-based brain-state estimation, I implemented FFT-based spectral analysis on the Zynq processing system.
+
+EEG signals were recorded from an occipital channel under eyes-open (EO) and eyes-closed (EC) conditions. Power spectral density (PSD) was calculated using a 256-point Hann-windowed FFT at a sampling rate of 250 SPS.
+
+### Preliminary Results
+
+<p align="center">
+  <img src="docs/images/alpha_psd.png" width="80%">
+</p>
+
+*Mean PSD under eyes-open and eyes-closed conditions. The shaded region indicates the alpha band (8–13 Hz).*
+
+The preliminary results show differences in spectral power between the two conditions. However, a clear eyes-closed increase within the alpha band was not observed. Larger differences appeared at frequencies above 13 Hz.
+
+Further validation of electrode contact, signal quality, and spectral characteristics is needed before attributing these differences to cortical alpha activity.
+
+
+
 ## Setup
 
 <p align="center">
