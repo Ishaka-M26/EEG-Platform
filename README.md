@@ -44,7 +44,7 @@ CH1 min=-24637 max=-24358 range=279  LED=1
 The third window exceeded the detection threshold:
 1759 > 800
 
-and triggered the LED. The LED remains on for approximately 500 ms
+and triggered the LED. The LED remains on for approximately 5 seconds
 after detection, which is why LED=1 continues in the following
 windows even though their ranges fall below the threshold.
 
